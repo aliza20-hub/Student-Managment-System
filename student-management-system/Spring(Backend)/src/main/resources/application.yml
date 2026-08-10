@@ -1,0 +1,24 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: student-management-system
+  data:
+    mongodb:
+      uri: mongodb://localhost:27017/sms_db
+      # If you use MongoDB Atlas instead, replace with your connection string, e.g.:
+      # uri: mongodb+srv://<user>:<password>@<cluster>.mongodb.net/sms_db?retryWrites=true&w=majority
+
+app:
+  jwt:
+    # CHANGE THIS in production - use a long random string (32+ chars), keep it out of source control
+    secret: "replace-this-with-a-long-random-secret-key-min-256-bits-please"
+    expiration-ms: 86400000   # 24 hours
+  cors:
+    allowed-origins: "http://localhost:5173"
+
+logging:
+  level:
+    org.springframework.security: INFO
+    com.sms: DEBUG
